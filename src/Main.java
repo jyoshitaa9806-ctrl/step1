@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,5 +35,21 @@ public class Main {
             high--;
         }
         return true;
+    }
+    public static boolean isPalindromeStack(String s){
+        boolean result=true;
+        Stack<Character> charStack=new Stack<>();
+        char[] charArray = s.toCharArray();
+        int i=0;
+        for(char c : charArray){
+            charStack.push(c);
+        }
+        while(i<charArray.length){
+            if(charStack.pop()!= charArray[i]){
+                result=false;
+            }
+            i++;
+        }
+        return result;
     }
 }
