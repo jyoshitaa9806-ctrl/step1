@@ -10,14 +10,9 @@ public class Main {
         System.out.println("Enter a string to check if it is a palindrome:");
         String word = scanner.nextLine();
 
-        String reversed = "";
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
-        }
-
         System.out.println("Input text: " + word);
 
-        if (word.equals(reversed)) {
+        if (isPalindrome(word)) {
             System.out.println("Is it a Palindrome? : true");
             System.out.println("The given string is a Palindrome.");
         } else {
@@ -26,5 +21,18 @@ public class Main {
         }
 
         scanner.close();
+    }
+
+    public static boolean isPalindrome(String s) {
+        char[] string = s.toCharArray();
+        int low = 0, high = string.length - 1;
+        while (low <= high) {
+            if (string[low] != string[high]) {
+                return false;
+            }
+            low++;
+            high--;
+        }
+        return true;
     }
 }
